@@ -1,15 +1,21 @@
 package com.cardinalblue.kogram
 
 import org.jetbrains.kotlin.psi.KtImportList
+import org.jetbrains.kotlin.psi.KtPackageDirective
 import org.jetbrains.kotlin.psi.KtTreeVisitorVoid
 
 class DependencyVisitor: KtTreeVisitorVoid(){
 
-    val dependencies = mutableListOf<Dependency>()
+    var dependency: FileDependency? = null
+
+    override fun visitPackageDirective(directive: KtPackageDirective) {
+        dependency = FileDependency(directive.fqName.toString())
+        super.visitPackageDirective(directive)
+    }
 
     override fun visitImportList(importList: KtImportList) {
         importList.imports.forEach {
-            dependencies += Dependency(it.importPath.toString())
+            dependency!!.imports += ImportPath(it.importPath.toString())
         }
         super.visitImportList(importList)
     }
