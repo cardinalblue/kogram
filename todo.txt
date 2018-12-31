@@ -1,0 +1,10 @@
+- export to Puml
+1. core module can read kt file  
+2. create generator-puml module
+3. write integration test (BDD style
+
+-infastructure
+1. git commit message limit
+2. CI/ CD
+3. maven
+4. use detekt to analysis
