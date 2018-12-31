@@ -1,0 +1,3 @@
+package cases
+
+class Default
