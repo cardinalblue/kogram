@@ -34,8 +34,10 @@ allprojects {
 }
 
 subprojects {
+
     apply {
         plugin("kotlin")
+        plugin("java-library")
     }
 
     tasks.withType<KotlinCompile> {
