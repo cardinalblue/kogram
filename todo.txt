@@ -1,12 +1,11 @@
-- export to Puml
-* create generator-puml module
-* write integration test (BDD style
-
 - core module
 * support resolve from dir
+* support properties injected by constructor
+* support type inference
 
 -infastructure
-* git commit message limit
+* git commit message constraint
 * CI/ CD
 * maven
 * use detekt to analysis
+* try to manage lib version by gradle.properties
