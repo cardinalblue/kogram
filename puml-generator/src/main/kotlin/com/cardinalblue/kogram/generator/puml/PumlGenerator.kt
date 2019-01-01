@@ -45,12 +45,12 @@ class PumlGenerator(private val fileDependency: FileDependency) {
 
     private fun StringBuilder.appendKoFunction(koFunction: KoFunction) {
         appendTab(2)
-        appendln("+ ${koFunction.name}(): ${koFunction.returnType}")
+        appendln("+ ${koFunction.name}(): ${koFunction.returnType.name}")
     }
 
     private fun StringBuilder.appendKoProperty(koProperty: KoProperty){
         appendTab(2)
-        appendln("+ ${koProperty.name}: ${koProperty.type}")
+        appendln("+ ${koProperty.name}: ${koProperty.type.name}")
     }
 
 }

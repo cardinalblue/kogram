@@ -1,9 +1,6 @@
 package com.cardinalblue.kogram.generator.puml
 
-import com.cardinalblue.kogram.FileDependency
-import com.cardinalblue.kogram.KoClass
-import com.cardinalblue.kogram.KoFunction
-import com.cardinalblue.kogram.KoProperty
+import com.cardinalblue.kogram.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -50,9 +47,9 @@ internal class PumlGeneratorTest{
 
 
         val fileDependency = FileDependency(packageName = "com.cardinalblue.kogram").also {
-            val property1 = KoProperty(name = "property1", type = "String")
-            val property2 = KoProperty(name = "property2", type = "Long")
-            val func1 = KoFunction(name = "func1", returnType = "Int")
+            val property1 = KoProperty(name = "property1", type = KoType("String"))
+            val property2 = KoProperty(name = "property2", type = KoType("Long"))
+            val func1 = KoFunction(name = "func1", returnType = KoType("Int"))
             it.classes.add(KoClass(name = "Sample",
                     properties = listOf(property1, property2),
                     functions = mutableListOf(func1)))

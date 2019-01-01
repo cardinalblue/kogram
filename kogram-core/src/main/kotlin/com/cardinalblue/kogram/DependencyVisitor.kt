@@ -21,10 +21,16 @@ class DependencyVisitor: KtTreeVisitorVoid(){
 
     override fun visitNamedFunction(function: KtNamedFunction) {
         visitingClass?.let {
-            val newFunction = KoFunction(function.name?: "UnKnown", function.typeReference?.typeElement?.text?: "UnKnown")
+            val newFunction = KoFunction(function.name?: "UnKnown",
+                    getTypeFromReference(function.typeReference))
             it.functions += newFunction
         }
         super.visitNamedFunction(function)
+    }
+
+    private fun getTypeFromReference(typeReference: KtTypeReference?): KoType{
+        val name = typeReference?.typeElement?.text?: "UnKnown"
+        return KoType(name)
     }
 
     override fun visitClass(klass: KtClass) {
@@ -38,7 +44,8 @@ class DependencyVisitor: KtTreeVisitorVoid(){
         val properties = mutableListOf<KoProperty>()
         val functions = mutableListOf<KoFunction>()
         klass.getProperties().forEach {
-            val property = KoProperty(it.name?: "UnKnown", it.typeReference?.typeElement?.text?: "UnKnown")
+            val property = KoProperty(it.name?: "UnKnown",
+                    getTypeFromReference(it.typeReference))
             properties += property
         }
         return KoClass(klass.name!!, properties, functions)

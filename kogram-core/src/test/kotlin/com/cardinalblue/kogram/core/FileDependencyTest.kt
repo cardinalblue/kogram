@@ -88,7 +88,7 @@ class FileDependencyTest{
         val property = dependency.classes[0].properties[0]
 
         assertEquals("sampleClass2", property.name)
-        assertEquals("SampleClass2", property.type)
+        assertEquals("SampleClass2", property.type.name)
     }
 
     @Test
@@ -114,7 +114,7 @@ class FileDependencyTest{
         val property = dependency.classes[0].functions[0]
 
         assertEquals("sampleFun", property.name)
-        assertEquals("Int", property.returnType)
+        assertEquals("Int", property.returnType.name)
     }
 }
 

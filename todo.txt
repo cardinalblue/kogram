@@ -5,6 +5,7 @@
 * support resolve from dir
 * support properties injected by constructor
 * support type inference
+* support function as type
 
 -infastructure
 * git commit message constraint
