@@ -6,7 +6,9 @@ import java.io.File
 import java.nio.file.Paths
 
 fun main(args: Array<String>) {
-    val filePath = "./Sample.kt"
+    val cliArgs = parseArgs(args)
+
+    val filePath = cliArgs.input?: "./"
     val kogramService = KogramService()
 
     println("resolving dependency...")
@@ -19,4 +21,8 @@ fun main(args: Array<String>) {
     pumlFile.writeText(umlString)
 
     println("Finish!!")
+}
+
+private fun parseArgs(args: Array<String>): CliArgs{
+    return parseArguments(args)
 }

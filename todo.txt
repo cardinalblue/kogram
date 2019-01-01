@@ -1,3 +1,6 @@
+- cli
+* support output arg
+
 - core module
 * support resolve from dir
 * support properties injected by constructor
