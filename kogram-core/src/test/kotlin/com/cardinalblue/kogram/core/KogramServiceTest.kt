@@ -1,6 +1,5 @@
 package com.cardinalblue.kogram.core
 
-import com.cardinalblue.kogram.KogramService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.nio.file.Paths

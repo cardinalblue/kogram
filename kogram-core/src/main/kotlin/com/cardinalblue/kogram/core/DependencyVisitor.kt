@@ -1,4 +1,4 @@
-package com.cardinalblue.kogram
+package com.cardinalblue.kogram.core
 
 import org.jetbrains.kotlin.psi.*
 
@@ -21,14 +21,14 @@ class DependencyVisitor: KtTreeVisitorVoid(){
 
     override fun visitNamedFunction(function: KtNamedFunction) {
         visitingClass?.let {
-            val newFunction = KoFunction(function.name?: "UnKnown",
+            val newFunction = KoFunction(function.name ?: "UnKnown",
                     getTypeFromReference(function.typeReference))
             it.functions += newFunction
         }
         super.visitNamedFunction(function)
     }
 
-    private fun getTypeFromReference(typeReference: KtTypeReference?): KoType{
+    private fun getTypeFromReference(typeReference: KtTypeReference?): KoType {
         val name = typeReference?.typeElement?.text?: "UnKnown"
         return KoType(name)
     }
@@ -44,7 +44,7 @@ class DependencyVisitor: KtTreeVisitorVoid(){
         val properties = mutableListOf<KoProperty>()
         val functions = mutableListOf<KoFunction>()
         klass.getProperties().forEach {
-            val property = KoProperty(it.name?: "UnKnown",
+            val property = KoProperty(it.name ?: "UnKnown",
                     getTypeFromReference(it.typeReference))
             properties += property
         }

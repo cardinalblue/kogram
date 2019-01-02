@@ -1,6 +1,6 @@
 package com.cardialblue.kogram.cli
 
-import com.cardinalblue.kogram.KogramService
+import com.cardinalblue.kogram.core.KogramService
 import com.cardinalblue.kogram.generator.puml.PumlGenerator
 import java.io.File
 import java.nio.file.Paths

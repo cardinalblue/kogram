@@ -1,4 +1,4 @@
-package com.cardinalblue.kogram
+package com.cardinalblue.kogram.core
 
 import org.jetbrains.kotlin.cli.common.CLIConfigurationKeys
 import org.jetbrains.kotlin.cli.common.messages.MessageRenderer

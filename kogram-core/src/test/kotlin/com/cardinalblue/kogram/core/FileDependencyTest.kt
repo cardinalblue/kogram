@@ -1,8 +1,5 @@
 package com.cardinalblue.kogram.core
 
-import com.cardinalblue.kogram.DependencyVisitor
-import com.cardinalblue.kogram.ImportPath
-import com.cardinalblue.kogram.resolveDependency
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

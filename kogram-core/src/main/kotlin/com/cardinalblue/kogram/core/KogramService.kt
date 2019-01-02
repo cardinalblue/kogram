@@ -1,4 +1,4 @@
-package com.cardinalblue.kogram
+package com.cardinalblue.kogram.core
 
 import java.nio.file.Path
 

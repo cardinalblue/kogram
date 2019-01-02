@@ -1,10 +1,8 @@
 package com.cardinalblue.kogram.core
 
-import com.cardinalblue.kogram.KtCompiler
 import org.jetbrains.kotlin.com.intellij.openapi.util.text.StringUtilRt
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.psi.KtFile
-import java.net.URI
 import java.nio.file.Path
 import java.nio.file.Paths
 

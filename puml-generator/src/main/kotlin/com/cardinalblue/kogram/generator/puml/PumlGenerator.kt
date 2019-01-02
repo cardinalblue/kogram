@@ -1,9 +1,9 @@
 package com.cardinalblue.kogram.generator.puml
 
-import com.cardinalblue.kogram.FileDependency
-import com.cardinalblue.kogram.KoClass
-import com.cardinalblue.kogram.KoFunction
-import com.cardinalblue.kogram.KoProperty
+import com.cardinalblue.kogram.core.FileDependency
+import com.cardinalblue.kogram.core.KoClass
+import com.cardinalblue.kogram.core.KoFunction
+import com.cardinalblue.kogram.core.KoProperty
 import java.lang.StringBuilder
 
 private const val TAG_START = "@startuml"

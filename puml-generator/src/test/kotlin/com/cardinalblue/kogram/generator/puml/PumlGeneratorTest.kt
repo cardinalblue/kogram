@@ -1,6 +1,6 @@
 package com.cardinalblue.kogram.generator.puml
 
-import com.cardinalblue.kogram.*
+import com.cardinalblue.kogram.core.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

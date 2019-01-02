@@ -1,4 +1,4 @@
-package com.cardinalblue.kogram
+package com.cardinalblue.kogram.core
 
 import org.jetbrains.kotlin.com.intellij.openapi.util.Key
 import org.jetbrains.kotlin.com.intellij.openapi.util.text.StringUtilRt
