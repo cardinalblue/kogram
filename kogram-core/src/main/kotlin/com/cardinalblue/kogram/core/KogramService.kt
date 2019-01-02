@@ -12,6 +12,11 @@ class KogramService {
         val compiler = KtCompiler()
         val file = compiler.compile(path, path)
         val dependencyVisitor = DependencyVisitor()
-        return dependencyVisitor.resolveDependency(file)
+        val fileDependency = dependencyVisitor.resolveDependency(file)
+
+        //TODO need to review this part
+        val referenceResolver = ReferenceResolver()
+        referenceResolver.execute(fileDependency)
+        return fileDependency
     }
 }

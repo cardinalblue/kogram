@@ -1,5 +1,6 @@
 - cli
 * support output arg
+* support generic
 
 - core module
 * support resolve from dir
@@ -13,3 +14,9 @@
 * maven
 * use detekt to analysis
 * try to manage lib version by gradle.properties
+
+- Study
+* Framework - UAST
+
+- Refactor
+* Need to think the responsibility between KogramService, ReferenceResolver, DependnecyVisitor and it's test case

@@ -1,6 +1,6 @@
 package com.cardinalblue.kogram.core
 
-class ReferenceResolver(){
+class ReferenceResolver {
 
     fun execute(fileDependency: FileDependency){
         val koClasses = mutableListOf<KoClass>()

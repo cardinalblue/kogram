@@ -13,6 +13,8 @@ private const val NAME_CLASS = "class"
 
 class PumlGenerator(private val fileDependency: FileDependency) {
 
+    private val dependency = mutableSetOf<Pair<String, String>>()
+
     fun generate(): String{
         val stringBuilder = StringBuilder(TAG_START)
         with(stringBuilder){
@@ -24,6 +26,7 @@ class PumlGenerator(private val fileDependency: FileDependency) {
             }
             appendln("}")
             appendln()
+            appendDependency()
             appendln(TAG_END)
         }
 
@@ -36,21 +39,36 @@ class PumlGenerator(private val fileDependency: FileDependency) {
             appendln("$NAME_CLASS ${koClass.name}")
         }else{
             appendln("$NAME_CLASS ${koClass.name} {")
-            koClass.functions.forEach { appendKoFunction(it) }
-            koClass.properties.forEach { appendKoProperty(it) }
+            koClass.functions.forEach { appendKoFunction(it, koClass.name) }
+            koClass.properties.forEach { appendKoProperty(it, koClass.name) }
             appendTab()
             appendln("}")
         }
     }
 
-    private fun StringBuilder.appendKoFunction(koFunction: KoFunction) {
+    private fun StringBuilder.appendKoFunction(koFunction: KoFunction, className: String) {
         appendTab(2)
         appendln("+ ${koFunction.name}(): ${koFunction.returnType.name}")
+        if(fileDependency.typeReferences.containsKey(koFunction.returnType)){
+            dependency.add(Pair(className, koFunction.returnType.name))
+        }
     }
 
-    private fun StringBuilder.appendKoProperty(koProperty: KoProperty){
+    private fun StringBuilder.appendKoProperty(koProperty: KoProperty, className: String){
         appendTab(2)
         appendln("+ ${koProperty.name}: ${koProperty.type.name}")
+        if(fileDependency.typeReferences.containsKey(koProperty.type)){
+            dependency.add(Pair(className, koProperty.type.name))
+        }
+    }
+
+    private fun StringBuilder.appendDependency(){
+        if(dependency.isNotEmpty()){
+            dependency.forEach {
+                appendln("${it.first} --> ${it.second}")
+            }
+            appendln()
+        }
     }
 
 }
